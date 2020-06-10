@@ -43,3 +43,26 @@ Playing around with the application, my first observation is that regardless of 
 A look in the companies_controller.rb file reveals why. If I comment out @company = Company.first on line 11, I can then view the other companies employees.
 
 ![image](https://user-images.githubusercontent.com/44870179/84206157-773cfc80-aaa6-11ea-829d-72b27250e41b.png)
+
+
+#### Bug 2
+
+![image](https://user-images.githubusercontent.com/44870179/84297312-3b0ca900-ab45-11ea-91ca-648a91f3b76f.png)
+
+When trying to add an employee to any company I found I was getting the above error message.
+
+This was harder to rectify so I turned to Google. I found this page which talked about validation.
+
+https://guides.rubyonrails.org/v4.1/active_record_validations.html
+
+Then it was a case of seeing what was expected to be validated and what was actually being validated.
+
+In models/employees.rb the employee class validates :forename, :surname and :middlename.
+
+In views/employess/new.html.erb the form.label for surname had a typo :middlename which would always be empty due as it should say :surname.
+
+![image](https://user-images.githubusercontent.com/44870179/84298353-e66a2d80-ab46-11ea-9f4d-dd10e3f11545.png)
+
+With :middlename changed to surname and :middlename removed from validation in models/employees.rb, the application can have employees added.
+
+![image](https://user-images.githubusercontent.com/44870179/84298551-32b56d80-ab47-11ea-8466-329b6d6f1e78.png)
