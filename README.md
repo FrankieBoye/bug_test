@@ -59,7 +59,7 @@ Then it was a case of seeing what was expected to be validated and what was actu
 
 In models/employees.rb the employee class validates :forename, :surname and :middlename.
 
-In views/employess/new.html.erb the form.label for surname had a typo :middlename which would always be empty due as it should say :surname.
+In views/employees/new.html.erb the form.label for surname had a typo :middlename which would always be empty as it should say :surname.
 
 ![image](https://user-images.githubusercontent.com/44870179/84298353-e66a2d80-ab46-11ea-9f4d-dd10e3f11545.png)
 
