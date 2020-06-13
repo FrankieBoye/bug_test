@@ -44,6 +44,7 @@ A look in the companies_controller.rb file reveals why. If I comment out @compan
 
 ![image](https://user-images.githubusercontent.com/44870179/84206157-773cfc80-aaa6-11ea-829d-72b27250e41b.png)
 
+<br></br>
 
 #### Bug 2
 
@@ -66,3 +67,20 @@ In views/employees/new.html.erb the form.label for surname had a typo :middlenam
 With :middlename changed to surname and :middlename removed from validation in models/employees.rb, the application can have employees added.
 
 ![image](https://user-images.githubusercontent.com/44870179/84298551-32b56d80-ab47-11ea-8466-329b6d6f1e78.png)
+
+
+<br></br>
+
+#### Bug 3
+
+![image](https://user-images.githubusercontent.com/44870179/84569760-c625b300-ad80-11ea-8f3d-68f0b9310d46.png)
+
+When trying to edit employees I was getting the above error message.
+
+The URL was http://localhost:3000/companies/13/employees/4/edit but the message indicated that the application was unable to find the company that contained the employee ID.
+
+The link to "Edit" in companies/show.html.erb did not have a reference to the company before the employee. With @company added before employee, it worked as expected.
+
+![image](https://user-images.githubusercontent.com/44870179/84578131-592f0f00-adba-11ea-9978-2df2a122c928.png)
+
+![image](https://user-images.githubusercontent.com/44870179/84578156-87145380-adba-11ea-9958-25a22e62ec73.png)
